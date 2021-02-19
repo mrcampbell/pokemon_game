@@ -198,7 +198,7 @@ defmodule PokemonGame.Pokedex do
     Move.changeset(move, attrs)
   end
 
-  alias PokemonGame.Pokedex.MoveLearns
+  alias PokemonGame.Pokedex.MoveLearn
 
   @doc """
   Returns the list of move_learns.
@@ -206,11 +206,11 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> list_move_learns()
-      [%MoveLearns{}, ...]
+      [%MoveLearn{}, ...]
 
   """
   def list_move_learns do
-    Repo.all(MoveLearns)
+    Repo.all(MoveLearn)
   end
 
   @doc """
@@ -221,13 +221,13 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> get_move_learns!(123)
-      %MoveLearns{}
+      %MoveLearn{}
 
       iex> get_move_learns!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_move_learns!(id), do: Repo.get!(MoveLearns, id)
+  def get_move_learns!(id), do: Repo.get!(MoveLearn, id)
 
   @doc """
   Creates a move_learns.
@@ -235,15 +235,15 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> create_move_learns(%{field: value})
-      {:ok, %MoveLearns{}}
+      {:ok, %MoveLearn{}}
 
       iex> create_move_learns(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
   def create_move_learns(attrs \\ %{}) do
-    %MoveLearns{}
-    |> MoveLearns.changeset(attrs)
+    %MoveLearn{}
+    |> MoveLearn.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -253,15 +253,15 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> update_move_learns(move_learns, %{field: new_value})
-      {:ok, %MoveLearns{}}
+      {:ok, %MoveLearn{}}
 
       iex> update_move_learns(move_learns, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_move_learns(%MoveLearns{} = move_learns, attrs) do
+  def update_move_learns(%MoveLearn{} = move_learns, attrs) do
     move_learns
-    |> MoveLearns.changeset(attrs)
+    |> MoveLearn.changeset(attrs)
     |> Repo.update()
   end
 
@@ -271,13 +271,13 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> delete_move_learns(move_learns)
-      {:ok, %MoveLearns{}}
+      {:ok, %MoveLearn{}}
 
       iex> delete_move_learns(move_learns)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_move_learns(%MoveLearns{} = move_learns) do
+  def delete_move_learns(%MoveLearn{} = move_learns) do
     Repo.delete(move_learns)
   end
 
@@ -287,10 +287,10 @@ defmodule PokemonGame.Pokedex do
   ## Examples
 
       iex> change_move_learns(move_learns)
-      %Ecto.Changeset{data: %MoveLearns{}}
+      %Ecto.Changeset{data: %MoveLearn{}}
 
   """
-  def change_move_learns(%MoveLearns{} = move_learns, attrs \\ %{}) do
-    MoveLearns.changeset(move_learns, attrs)
+  def change_move_learns(%MoveLearn{} = move_learns, attrs \\ %{}) do
+    MoveLearn.changeset(move_learns, attrs)
   end
 end

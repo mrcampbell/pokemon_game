@@ -4,7 +4,8 @@ defmodule PokemonGame.Pokedex.Breed do
 
   schema "breeds" do
     field :name, :string
-    field :number, :string
+    field :number, :integer
+    has_many :move_learns, PokemonGame.Pokedex.MoveLearn
 
     timestamps()
   end

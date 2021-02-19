@@ -4,7 +4,7 @@ defmodule PokemonGame.Pokedex.Move do
 
   schema "moves" do
     field :name, :string
-    field :number, :string
+    field :number, :integer
 
     timestamps()
   end

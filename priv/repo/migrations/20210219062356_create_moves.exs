@@ -3,7 +3,7 @@ defmodule PokemonGame.Repo.Migrations.CreateMoves do
 
   def change do
     create table(:moves) do
-      add :number, :string
+      add :number, :integer
       add :name, :string
 
       timestamps()

@@ -5,10 +5,15 @@ defmodule PokemonGameWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PokemonGameWeb do
-    pipe_through :api
-  end
+  scope "/" do
+    pipe_through(:api)
 
+    forward("/graphiql", Absinthe.Plug.GraphiQL,
+      schema: PokemonGameWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: PokemonGameWeb.Endpoint}
+    )
+  end
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

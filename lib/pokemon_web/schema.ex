@@ -10,6 +10,11 @@ defmodule PokemonGameWeb.Schema do
     field :test, :test_type do
       resolve &Resolvers.Test.single_test/3
     end
+
+    @desc "List breeds"
+    field :breeds, list_of(:breed) do
+      resolve &Resolvers.Pokedex.breeds/3
+    end
   end
 
 end

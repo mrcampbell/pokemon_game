@@ -15,6 +15,12 @@ defmodule PokemonGameWeb.Schema do
     field :breeds, list_of(:breed) do
       resolve &Resolvers.Pokedex.breeds/3
     end
+
+    @desc "Single breed"
+    field :breed, :breed do
+      arg :number, non_null(:integer)
+      resolve &Resolvers.Pokedex.breed/3
+    end
   end
 
 end

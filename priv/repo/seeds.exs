@@ -21,10 +21,25 @@ bulbasaur = Repo.insert!(%Breed{
   name: "bulbasaur",
   number: 1,
 })
+
+charmander = Repo.insert!(%Breed{
+  name: "charmander",
+  number: 4,
+})
+
 pound = Repo.insert!(%Move{
   name: "pound",
   number: 7
 })
 
+scratch = Repo.insert!(%Move{
+  name: "scratch",
+  number: 3
+})
+
+
 bulbasaur_pound = Ecto.build_assoc(bulbasaur, :move_learns, %MoveLearn{move_number: 7, level_learned_at: 0, method: "egg"})
 Repo.insert!(bulbasaur_pound)
+
+charmander_scratch = Ecto.build_assoc(charmander, :move_learns, %MoveLearn{move_number: 3, level_learned_at: 0, method: "egg"})
+Repo.insert!(charmander_scratch)

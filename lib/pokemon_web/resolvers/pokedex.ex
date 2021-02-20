@@ -12,6 +12,20 @@ defmodule PokemonGameWeb.Resolvers.Pokedex do
       where: b.number == ^number,
       select: b
 
-      {:ok, PokemonGame.Repo.one!(query)}
+      out = PokemonGame.Repo.one!(query)
+
+      IO.inspect(out)
+      {:ok, out}
+  end
+
+  def breed_moves(%PokemonGame.Pokedex.Breed{} = breed, _args, _resolution) do
+    query = from ml in PokemonGame.Pokedex.MoveLearn,
+      where: ml.breed_id == ^breed.id,
+      select: ml
+
+      out = PokemonGame.Repo.all(query)
+
+      IO.inspect(out)
+      {:ok, out}
   end
 end

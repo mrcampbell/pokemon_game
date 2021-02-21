@@ -37,9 +37,13 @@ scratch = Repo.insert!(%Move{
   number: 3
 })
 
+Repo.insert!(%MoveLearn{move_number: 7, breed_number: 1, level_learned_at: 0, method: "egg"})
+Repo.insert!(%MoveLearn{move_number: 3, breed_number: 4, level_learned_at: 0, method: "egg"})
 
-bulbasaur_pound = Ecto.build_assoc(bulbasaur, :move_learns, %MoveLearn{move_number: 7, level_learned_at: 0, method: "egg"})
-Repo.insert!(bulbasaur_pound)
 
-charmander_scratch = Ecto.build_assoc(charmander, :move_learns, %MoveLearn{move_number: 3, level_learned_at: 0, method: "egg"})
-Repo.insert!(charmander_scratch)
+
+# bulbasaur_pound = Ecto.build_assoc(bulbasaur, :move_learns, %MoveLearn{move_number: 7, level_learned_at: 0, method: "egg"})
+# Repo.insert!(bulbasaur_pound)
+
+# charmander_scratch = Ecto.build_assoc(charmander, :move_learns, %MoveLearn{move_number: 3, level_learned_at: 0, method: "egg"})
+# Repo.insert!(charmander_scratch)

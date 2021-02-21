@@ -5,7 +5,7 @@ defmodule PokemonGame.Pokedex.Breed do
   schema "breeds" do
     field :name, :string
     field :number, :integer
-    has_many :move_learns, PokemonGame.Pokedex.MoveLearn
+    has_many :move_learns, PokemonGame.Pokedex.MoveLearn, foreign_key: :breed_number, references: :number
 
     timestamps()
   end

@@ -5,7 +5,7 @@ defmodule PokemonGame.Pokedex.MoveLearn do
   schema "move_learns" do
     field :level_learned_at, :integer
     field :method, :string
-    belongs_to :breed, PokemonGame.Pokedex.Breed
+    belongs_to :breed, PokemonGame.Pokedex.Breed, foreign_key: :breed_number, references: :number
     belongs_to :move, PokemonGame.Pokedex.Move, foreign_key: :move_number, references: :number
 
     timestamps()
@@ -15,7 +15,7 @@ defmodule PokemonGame.Pokedex.MoveLearn do
   def changeset(move_learns, attrs) do
     IO.inspect(attrs)
     move_learns
-    |> cast(attrs, [:move_number, :method, :level_learned_at])
-    |> validate_required([:move_number, :method, :level_learned_at])
+    |> cast(attrs, [:move_number, :method, :level_learned_at, :breed_number])
+    |> validate_required([:move_number, :method, :level_learned_at, :breed_number])
   end
 end

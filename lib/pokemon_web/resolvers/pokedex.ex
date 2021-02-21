@@ -22,7 +22,6 @@ defmodule PokemonGameWeb.Resolvers.Pokedex do
     mls = Ecto.assoc(breed, [:move_learns])
     |> PokemonGame.Repo.all()
 
-
     IO.inspect mls
 
     {:ok, mls}

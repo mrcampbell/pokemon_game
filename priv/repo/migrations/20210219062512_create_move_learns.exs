@@ -6,7 +6,7 @@ defmodule PokemonGame.Repo.Migrations.CreateMoveLearns do
       add :move_number, :integer
       add :method, :string
       add :level_learned_at, :integer
-      add :breed_id, references(:breeds)
+      add :breed_number, :integer
 
       timestamps()
     end

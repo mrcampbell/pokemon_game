@@ -5,8 +5,8 @@ defmodule PokemonGame.Pokedex.MoveLearn do
   schema "move_learns" do
     field :level_learned_at, :integer
     field :method, :string
-    field :move_number, :integer
     belongs_to :breed, PokemonGame.Pokedex.Breed
+    belongs_to :move, PokemonGame.Pokedex.Move, foreign_key: :move_number, references: :number
 
     timestamps()
   end

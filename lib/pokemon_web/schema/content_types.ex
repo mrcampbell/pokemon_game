@@ -7,10 +7,18 @@ defmodule PokemonGameWeb.Schema.ContentTypes do
     field :name, :string
   end
 
+  object :move do
+    field :number, :integer
+    field :name, :string
+  end
+
   object :move_learns do
     field :move_number, :integer
     field :method, :string
     field :level_learned_at, :integer
+    field :move, :move do
+      resolve &Resolvers.Pokedex.move_learn_move/3
+    end
   end
 
   object :breed do
@@ -20,11 +28,4 @@ defmodule PokemonGameWeb.Schema.ContentTypes do
       resolve &Resolvers.Pokedex.breed_move_learns/3
     end
   end
-
-  object :move do
-    field :number, :integer
-    field :name, :string
-  end
-
-
 end

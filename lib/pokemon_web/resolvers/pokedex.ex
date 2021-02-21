@@ -12,10 +12,10 @@ defmodule PokemonGameWeb.Resolvers.Pokedex do
       where: b.number == ^number,
       select: b
 
-      out = PokemonGame.Repo.one!(query)
-
-      IO.inspect(out)
-      {:ok, out}
+      case PokemonGame.Repo.one(query) do
+        nil -> {:error, "not found"}
+        breed -> {:ok, breed}
+      end
   end
 
   def breed_move_learns(%PokemonGame.Pokedex.Breed{} = breed, _args, _resolution) do

@@ -18,7 +18,14 @@ defmodule PokemonGameWeb.Resolvers.Pokedex do
       {:ok, out}
   end
 
-  def breed_moves(%PokemonGame.Pokedex.Breed{} = breed, _args, _resolution) do
+  def breed_move_learns(%PokemonGame.Pokedex.Breed{} = breed, _args, _resolution) do
+    mls = Ecto.assoc(breed, :move_learns)
+    |> PokemonGame.Repo.all()
+
+    {:ok, mls}
+  end
+
+  def move(%PokemonGame.Pokedex.Breed{} = breed, _args, _resolution) do
     query = from ml in PokemonGame.Pokedex.MoveLearn,
       where: ml.breed_id == ^breed.id,
       select: ml

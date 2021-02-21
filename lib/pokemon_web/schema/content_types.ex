@@ -17,7 +17,7 @@ defmodule PokemonGameWeb.Schema.ContentTypes do
     field :number, :integer
     field :name, :string
     field :moves_learned, list_of(:move_learns) do
-      resolve &Resolvers.Pokedex.breed_moves/3
+      resolve &Resolvers.Pokedex.breed_move_learns/3
     end
   end
 

@@ -5,6 +5,7 @@ defmodule PokemonGame.Repo.Migrations.CreateBreeds do
     create table(:breeds) do
       add :number, :integer
       add :name, :string
+      add :base_stats, :map
 
       timestamps()
     end

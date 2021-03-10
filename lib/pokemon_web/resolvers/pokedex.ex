@@ -22,16 +22,12 @@ defmodule PokemonGameWeb.Resolvers.Pokedex do
     mls = Ecto.assoc(breed, [:move_learns])
     |> PokemonGame.Repo.all()
 
-    IO.inspect mls
-
     {:ok, mls}
   end
 
   def move_learn_move(%PokemonGame.Pokedex.MoveLearn{} = move_learn, _args, _resolution) do
     move = Ecto.assoc(move_learn, [:move])
     |> PokemonGame.Repo.one()
-
-    IO.inspect move
 
     {:ok, move}
   end

@@ -20,6 +20,14 @@ Repo.delete_all(Move)
 bulbasaur = Repo.insert!(%Breed{
   name: "bulbasaur",
   number: 1,
+  base_stats: %{
+    hp: 1,
+    atk: 2,
+    # def: 3,
+    # spec_atk: 4,
+    # spec_def: 5,
+    # speed: 6
+  }
 })
 
 charmander = Repo.insert!(%Breed{

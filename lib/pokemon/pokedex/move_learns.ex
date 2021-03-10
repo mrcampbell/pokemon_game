@@ -13,7 +13,6 @@ defmodule PokemonGame.Pokedex.MoveLearn do
 
   @doc false
   def changeset(move_learns, attrs) do
-    IO.inspect(attrs)
     move_learns
     |> cast(attrs, [:move_number, :method, :level_learned_at, :breed_number])
     |> validate_required([:move_number, :method, :level_learned_at, :breed_number])
